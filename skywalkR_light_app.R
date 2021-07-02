@@ -1,50 +1,12 @@
 library(shiny)
 library(shinydashboard)
-library(shinydashboard)
 library(shinyWidgets)
 library(rPref)
 library(DT)
-library(tidyverse)
+library(tidyverse) 
+source("R/server_utils.R", local = TRUE)
 
 usual_options <- c('min', 'exclude', 'max')
-
-# helper functions for the back-end 
-pareto_helper <- function(metrics_df,
-                          funs,
-                          return_pref = FALSE,
-                          num_objectives) {
-  
-  # perform Pareto optimization for a given set of objectives
-  # metrics_df - a table with pre-aggregated metrics for optimization
-  
-  funs <- case_when(funs == 'min' ~ 'low',
-                    funs == 'max' ~ 'high',
-                    TRUE ~ funs)
-  
-  pareto_factory <- function(fun) {
-    pfun <- get(fun)
-    return(pfun)
-  }
-  
-  vars <- names(metrics_df)
-  names(funs) <- names(vars) <-
-    sapply(1:num_objectives, function(x)
-      paste0('obj_', as.character(x)))
-  
-  ok_funs <- funs[funs != 'exclude']
-  ok_vars <- vars[funs != 'exclude']
-
-  pfuns <- sapply(ok_funs, pareto_factory)
-  prefs <- Map(do.call, pfuns, lapply(ok_vars[names(pfuns)], list))
-  pp <- Reduce('*', prefs)
-  res <- psel(metrics_df, pp, top = nrow(metrics_df))
-  
-  if (return_pref == TRUE) {
-    pp
-  } else {
-    res
-  }
-}
 
 validate_table <- function(data){
   
@@ -62,7 +24,6 @@ validate_table <- function(data){
     return(data[1:6]) 
   }
 }
-
 
 ui <- dashboardPage(
   skin = 'purple',
@@ -145,7 +106,8 @@ server <- function(input, output) {
     data <- data()
     res <- pareto_helper(data[2:ncol(data)], all_objectives,
                          num_objectives = total_objectives - 1,
-                         return_pref = FALSE)
+                         return_pref = FALSE,
+                         skip_cols = 0)
     
     labelled <- full_join(data(), res) %>%
                 distinct() %>%
@@ -170,7 +132,3 @@ server <- function(input, output) {
 }
 
 shinyApp(ui, server) 
-
-
-
-
