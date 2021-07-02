@@ -1,8 +1,6 @@
 ## skywalkR
 
-This repository contains code and documentation to accompany Gogleva et al manuscript:
-
-**Knowledge Graph-based Recommendation Framework Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer**
+This repository contains code and documentation to accompany Gogleva et al manuscript: **Knowledge Graph-based Recommendation Framework Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer**.
 
 The repository has the following structure:
 
@@ -44,4 +42,6 @@ This Shiny app is tailored to finding genes driving resistance in EGFR mutant No
 
 ### SkywalkR_light app
 
-This is a generic app, bare bones app that allows users to apply the same idea of multi-objective optimization to their own data. Any tabular numeric data should work. To include categorical data, please represent it as numeric. By default we will treat the first column as labels. Columns will be automatically mapped to sliders.
+This is a generic app, bare bones app that allows users to apply the same idea of multi-objective optimization to their own data. Any tabular numeric data should work. To include categorical data, please represent it as numeric. By default we will treat the first column as labels. Columns will be automatically mapped to sliders. 
+
+![skywalkr_light_app](https://github.com/AstraZeneca/skywalkR/blob/master/img/skywalkR_light_interface.png)
