@@ -34,11 +34,9 @@ input any table and test out how multi-objective optimisation works;
 
 ### SkywalkR app
 
-This Shiny app is tailored to finding genes driving resistance in EGFR mutant Non-small Cell Line Cancer (NSCLC). The app will automatically load required data.
+This Shiny app is tailored to finding genes driving resistance in EGFR mutant Non-small Cell Line Cancer (NSCLC). The app will automatically load required data. To re-rank genes set directions of optimization by moving sliders and press ``rank!`` button.
 
-To run ranking, position sliders to required positions and press ``rank!`` button.
-
-![](img/skywalkr_interface.png)
+![skywalkr_app](https://github.com/AstraZeneca/skywalkR/blob/master/img/skywalkR_interface.png)
 
 
 
