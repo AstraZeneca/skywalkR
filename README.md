@@ -1,3 +1,5 @@
+![Maturity level-0](https://img.shields.io/badge/Maturity%20Level-ML--0-red)
+
 ## skywalkR
 
 This repository contains code and documentation to accompany Gogleva et al manuscript: **Knowledge Graph-based Recommendation Framework Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer**.
@@ -11,6 +13,7 @@ The repository has the following structure:
 │   ├── server_utils.R
 │   └── ui_utils.R
 ├── README.md
+├── renv.lock
 ├── 💾 data --> necessary input data and sample data files
 │   ├── app_data.csv
 │   ├── heatmap_data.tsv
@@ -51,8 +54,10 @@ This is a generic app, bare bones app that allows users to apply the same idea o
 
 To install all the packages required to run the apps, call ``renv::restore()`` as declared in the lockfile.
 
+After installing run the respective app:
 
-After installing
-``R -e "shiny::runApp('skywalkR_light_app.R')"`` or
+``R -e "shiny::runApp('skywalkR_light_app.R')"`` 
+
+or
 
 ``R -e "shiny::runApp('skywalkR_app.R')"``
