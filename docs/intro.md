@@ -1,6 +1,6 @@
 ### How it works
 
-SkywalkR is a UI for a recommendation system that re-ranks CRISPR hits from Osimertinib resistance CRISPR screens. By brining the most intersting genes on top it helps scientists to focus their efforts on the most promising markers of secondary resistance in lung cancer. We framed this task as a multi-objective optimisation problem. We rely on skyline computation to find the best solutions (gene targets) [Liu et al, 2015](https://www.cs.sfu.ca/~jpei/publications/Pareto%20Optimal%20Groups%20VLDB16.pdf) according to objectives defined by the users.
+SkywalkR is a UI for a recommendation system that re-ranks CRISPR hits from Osimertinib resistance CRISPR screens. By bringing the most intersting genes on top it helps scientists to focus their efforts on the most promising markers of secondary resistance in lung cancer. We framed this task as a multi-objective optimisation problem. We rely on skyline computation to find the best solutions (gene targets) [Liu et al, 2015](https://www.cs.sfu.ca/~jpei/publications/Pareto%20Optimal%20Groups%20VLDB16.pdf) according to objectives defined by the users.
 
 We have assembled a hybrid dataset that contains clinical, preclinical, literature and graph-derived features.  
 
