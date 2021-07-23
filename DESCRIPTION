@@ -1,0 +1,11 @@
+Project: skywalkR
+Title: code and documentation to accompany Gogleva et al manuscript
+Version: 0.1
+Authors@R: person("Anna", "Gogleva", email = "anna.gogleva@astrazeneca.com",
+                  role = c("aut", "cre"))
+Description: This project contains code and documentation to accompany
+Gogleva et al manuscript: Knowledge Graph-based Recommendation Framework
+Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer.
+Depends: R (>= 4.0.2)
+License: Apache 2.0
+LazyData: true
