@@ -1,5 +1,5 @@
 This plot shows optimal genes according to specified objectives and directions of
-optimization. To make comparisson easier between candidate genes, values of all 
+optimization. To make comparison easier between candidate genes, values of all 
 objectives have been rescaled within optimal genes to to have specified minimum (-1) 
 and maximum (1). 
 
