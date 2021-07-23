@@ -60,7 +60,7 @@ any_filter <- function(df,flt_d, colName = 'depmap'){
   return(f1)
 }
 
-# formatter functiongs for TopGenes table
+# formatter functions for TopGenes table
 sign_formatter <- formatter("span",
   style = x ~ style(color = ifelse(x > 0, "green",
     ifelse(x < 0, "red", "black"))))
