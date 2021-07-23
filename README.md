@@ -8,6 +8,8 @@ The repository has the following structure:
 
 ```
 .
+├── DESCRIPTION
+├── CONTRIBUTING.md
 ├── LICENSE
 ├── 🛠️ R --> helper functions for shiny apps
 │   ├── server_utils.R
@@ -56,7 +58,7 @@ To install all the packages required to run the apps, call ``renv::restore()`` a
 
 After installing run the respective app:
 
-``R -e "shiny::runApp('skywalkR_light_app.R')"`` 
+``R -e "shiny::runApp('skywalkR_light_app.R')"``
 
 or
 
