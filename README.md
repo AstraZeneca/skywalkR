@@ -2,7 +2,9 @@
 
 ## skywalkR
 
-This repository contains code and documentation to accompany Gogleva et al manuscript: **Knowledge Graph-based Recommendation Framework Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer**.
+This repository contains code and documentation to accompany Gogleva et al manuscript: **Knowledge Graph-based Recommendation Framework Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer**. 
+
+To read the pre-print please follow: https://www.biorxiv.org/content/10.1101/2021.07.23.453506v1.full.pdf+html
 
 The repository has the following structure:
 
