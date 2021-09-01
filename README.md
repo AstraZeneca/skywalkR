@@ -56,12 +56,15 @@ This is a generic app, bare bones app that allows users to apply the same idea o
 
 ### Running apps
 
-To install all the packages required to run the apps, call ``renv::restore()`` as declared in the lockfile.
+To install all the packages required to run the apps, call ``renv::restore()`` as declared in the lockfile. It might take a few minutes to download the dependencies.
 
-After installing run the respective app:
+After installing run the respective app, it should start immediately:
 
 ``R -e "shiny::runApp('skywalkR_light_app.R')"``
 
 or
 
 ``R -e "shiny::runApp('skywalkR_app.R')"``
+
+It might take a 10-20 seconds for ``skywalkR`` app to re-rank genes. 
+
