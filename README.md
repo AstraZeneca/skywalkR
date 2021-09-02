@@ -56,7 +56,7 @@ This is a generic app, bare bones app that allows users to apply the same idea o
 
 ### Running apps
 
-To install all the packages required to run the apps, call ``renv::restore()`` as declared in the lockfile. It might take a few minutes to download the dependencies.
+To install all the packages required to run the apps, call ``renv::restore()`` as declared in the lockfile. Typically, it can take a few minutes to install the dependencies, depending on which ones are already installed in your environment.
 
 After installing run the respective app, it should start immediately:
 
@@ -66,5 +66,4 @@ or
 
 ``R -e "shiny::runApp('skywalkR_app.R')"``
 
-It might take a 10-20 seconds for ``skywalkR`` app to re-rank genes. 
-
+Typical start time for the app 10-20 seconds. Time estimates are provided for MacBook Pro, 6-Core Intel Core i7, 2.6 GHz, 6 cores, 32 GB, Big Sur.
