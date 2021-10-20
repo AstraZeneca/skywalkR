@@ -31,17 +31,35 @@
 
 #### literature support
 
-- **nlp_nsclc**
+- **lit_nsclc**
 
   ``definition:`` number of papers mentioning NSCLC + a candidate gene in a cancer resistance context
 
   ``default slider position``: high;
 
-- **nlp_egfr**
+- **lit_egfr**
 
-  ``definition:`` refined NLP metric, number of papers mentioning EGFR + a candidate gene in a cancer resistance context
+  ``definition:`` number of papers mentioning EGFR + a candidate gene in a cancer resistance context
 
   ``default slider position``: high;  
+  
+- **lit_nsclc_norm**
+
+  ``definition:`` % of papers mentioning NSCLC + a candidate gene in a cancer resistance context over all papers that mention a given gene.
+
+  ``default slider position``: exclude;
+
+- **lit_egfr_norm**
+
+  ``definition:``  % of papers mentioning EGFR + a candidate gene in a cancer resistance context over all papers that mention a given gene.
+
+  ``default slider position``: exclude;  
+  
+- **lit_total**
+
+  ``definition:`` total number of papers that mention a given gene.
+
+  ``default slider position``: exclude;  
 
 #### Knowledge Graph (KG) graph-derived  
 
