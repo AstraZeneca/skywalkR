@@ -9,13 +9,14 @@ library(formattable)
 library(DT)
 library(d3heatmap)
 library(R.utils)
+library(RColorBrewer)
 source("R/server_utils.R", local = TRUE)
 source("R/ui_utils.R", local = TRUE)
 
 # constants & input files
 USUAL_OPTIONS <- c('low', 'exclude', 'high')
 DISTANCE_OPTIONS <- c('close', 'exclude', 'far') 
-TOTAL_OBJECTIVES <- 24 
+TOTAL_OBJECTIVES <- 27 
 DATA <- read_csv('data/app_data.csv', quoted_na = FALSE)
 HEATMAP_DATA <- read_tsv('data/heatmap_data.tsv')
 NLP <- read_csv('data/nlp_allowed.csv')
@@ -68,51 +69,59 @@ ui <- dashboardPage(
         sliderTextInput01(
           "obj_5", 
           "# of papers, gene in resistance context + NSCLC",
-          "high")
+          "high"),
+        sliderTextInput01(
+          "obj_6", 
+          "% of papers that mention a gene + EGFR in resistance context / all papers about a gene",
+          "exclude"
+        ),
+        sliderTextInput01(
+          "obj_7", 
+          " of papers that mention a gene + NSCLC in resistance context / all papers about a gene",
+          "exclude"),
+        sliderTextInput01(
+          "obj_8", 
+          "# total papers about a gene",
+          "exclude")
       ),
       menuItem(
         "Graph-derived",
         tabName = "widgets",
         icon = icon("project-diagram"),
         sliderTextInput01(
-          "obj_6", 
+          "obj_9", 
           "L2 distance to EGFR",
           'exclude',
           DISTANCE_OPTIONS
         ),
         sliderTextInput01(
-          "obj_7", 
+          "obj_10", 
           "L2 distance to NSCLC",
           'exclude',
           DISTANCE_OPTIONS
         ),
         sliderTextInput01(
-          "obj_8", 
+          "obj_11", 
           "# uniqie neighbours connected to a node in full KG",
           'exclude'
         ),
         sliderTextInput01(
-          "obj_9", 
+          "obj_12", 
           "# edges connected to a node in full BIKG",
           'exclude'
         ),
         sliderTextInput01(
-          "obj_10", 
+          "obj_13", 
           "node degree in PPI subgraph extracted from BIKG",
           'exclude'
         ),
         sliderTextInput01(
-          "obj_10", 
-          "node degree in PPI subgraph extracted from BIKG",
-          'exclude'
-        ),
-        sliderTextInput01(
-          "obj_11", 
+          "obj_14", 
           "pagerank, (~ popularity) of a node in PPI subgraph",
           'exclude'
         ),
         sliderTextInput01(
-          "obj_12", 
+          "obj_15", 
           "betweenness (~ node's influence) in PPI subgraph",
           'exclude'
         )
@@ -122,37 +131,37 @@ ui <- dashboardPage(
         tabName = "widgets",
         icon = icon("check-double"),
         sliderTextInput01(
-          'obj_13',
+          'obj_16',
           "CRISPRn+CRISPRa, consistency in osimertinib-treated cell lines",
            'high'
         ),
         sliderTextInput01(
-          'obj_14',
+          'obj_17',
           "CRISPRn, consistency in osimertinib-treated cell lines",
           'exclude'
         ),
         sliderTextInput01(
-          'obj_15',
+          'obj_18',
           "CRISPRn, consistency in gefitinib-treated cell lines",
           'exclude'
         ),
         sliderTextInput01(
-          'obj_16',
+          'obj_19',
           "CRISPRn, consistency in the full EGFR screen",
           'exclude'
         ),
         sliderTextInput01(
-          'obj_17',
+          'obj_20',
           "CRISPRa, consistency in osimertinib-treated cell lines",
           'exclude'
         ),
         sliderTextInput01(
-          'obj_18',
+          'obj_21',
           "CRISPRa, consistency in gefitinib-treated cell lines",
           'exclude'
         ),
         sliderTextInput01(
-          'obj_19',
+          'obj_22',
           "CRISPRa, consistency in the full EGFR screen",
           'exclude'
         )
@@ -162,17 +171,17 @@ ui <- dashboardPage(
         tabName = "widgets",
         icon = icon("user-md"),
         sliderTextInput01(
-          'obj_20',
+          'obj_23',
           "Clinical enrichment score 1, RESPONDERS vs RESISTANT",
           'high'
         ),
         sliderTextInput01(
-          'obj_21',
+          'obj_24',
           "Clinical enrichment score 2, RESPONDERS vs RESISTANT",
           'high'
         ),
         sliderTextInput01(
-          'obj_22',
+          'obj_25',
           "Clinical enrichment score, cross-studies",
           'high'
         )
@@ -182,12 +191,12 @@ ui <- dashboardPage(
         tabName = "widgets",
         icon = icon("dna"),
         sliderTextInput01(
-          'obj_23',
+          'obj_26',
           "RNAseq, adjusted p-value",
           'low'
         ),
         sliderTextInput01(
-          'obj_24',
+          'obj_27',
           "RNAseq, log2 fold change",
           'high'
         )
@@ -232,7 +241,8 @@ ui <- dashboardPage(
             choices = list(
               'essentiality (depmap)' = c("depmap"),
               'tractability' = c("trct_ab", "trct_sm", 'trct_om'),
-              'literature support' = c("lit_egfr", "lit_nsclc"),
+              'literature support' = c("lit_egfr", "lit_nsclc", 
+                                       "lit_egfr_norm", "lit_nsclc_norm", "lit_total"),
               'graph-derived' = c("L2_egfr", "L2_nsclc",
                                    'n_neighbours', 'n_edges',
                                     'degree', 'pagerank', 'betweenness'),
@@ -372,6 +382,9 @@ server <- function(input, output, session) {
       list(
         area(col = trct_ab:trct_om) ~ color_bar('#8dd3c7'),
         area(col = c(lit_nsclc,lit_egfr)) ~ color_bar('#9ebcda'), 
+        lit_egfr_norm = color_bar('#9ebcda'),
+        lit_nsclc_norm = color_bar('#9ebcda'),
+        lit_total = color_bar('#9ebcda'),
         full_screen = color_bar('#fb9a99'),
         area(col = KO_osi:KO_all) ~ color_bar('#fdb863'), 
         area(col = A_osi:A_all) ~ color_bar('#fee0b6'), 
