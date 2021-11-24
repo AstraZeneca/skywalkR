@@ -118,12 +118,12 @@ ui <- dashboardPage(
         sliderTextInput01(
           "obj_14", 
           "pagerank, (~ popularity) of a node in PPI subgraph",
-          'exclude'
+          'high'
         ),
         sliderTextInput01(
           "obj_15", 
           "betweenness (~ node's influence) in PPI subgraph",
-          'exclude'
+          'high'
         )
       ),
       menuItem(
@@ -132,7 +132,7 @@ ui <- dashboardPage(
         icon = icon("check-double"),
         sliderTextInput01(
           'obj_16',
-          "CRISPRn+CRISPRa, consistency in osimertinib-treated cell lines",
+          "CRISPRn+CRISPRa, consistency across all conditions",
            'high'
         ),
         sliderTextInput01(
