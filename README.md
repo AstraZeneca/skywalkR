@@ -69,6 +69,7 @@ or
 Typical start time for the app 10-20 seconds. Time estimates are provided for MacBook Pro, 6-Core Intel Core i7, 2.6 GHz, 6 cores, 32 GB, Big Sur.
 
 ### Citation 
+```
 @article{gogleva2021knowledge,
   title={Knowledge graph-based recommendation framework identifies novel drivers of resistance in egfr mutant non-small cell lung cancer},
   author={Gogleva, Anna and Polychronopoulos, Dimitris and Pfeifer, Matthias and Poroshin, Vladimir and Ughetto, Micha{\"e}l and Sidders, Ben and Dry, Jonathan and Ahdesm{\"a}ki, Miika and McDermott, Ultan and Papa, Eliseo and others},
@@ -76,3 +77,4 @@ Typical start time for the app 10-20 seconds. Time estimates are provided for Ma
   year={2021},
   publisher={Cold Spring Harbor Laboratory}
 }
+```
