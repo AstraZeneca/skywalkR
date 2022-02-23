@@ -1,4 +1,5 @@
-![Maturity level-Prototype](https://img.shields.io/badge/Maturity%20Level-Prototype-red)
+![Maturity level-Prototype](https://img.shields.io/badge/Maturity%20Level-Prototype-red) [![DOI](https://zenodo.org/badge/371064106.svg)](https://zenodo.org/badge/latestdoi/371064106)
+
 
 ## skywalkR
 
