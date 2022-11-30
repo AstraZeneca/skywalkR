@@ -5,7 +5,7 @@
 
 This repository contains code and documentation to accompany Gogleva et al manuscript: **Knowledge Graph-based Recommendation Framework Identifies Novel Drivers of Resistance in EGFR mutant Non-small Cell Lung Cancer**. 
 
-To read the pre-print please follow: https://www.biorxiv.org/content/10.1101/2021.07.23.453506v1.full.pdf+html
+To read the paper please follow: [https://www.biorxiv.org/content/10.1101/2021.07.23.453506v1.full.pdf+html](https://www.nature.com/articles/s41467-022-29292-7)
 
 The repository has the following structure:
 
@@ -71,12 +71,34 @@ Typical start time for the app 10-20 seconds. Time estimates are provided for Ma
 
 ### Citation 
 ```
-@article{gogleva2021knowledge,
-  title={Knowledge graph-based recommendation framework identifies novel drivers of resistance in egfr mutant non-small cell lung cancer},
-  author={Gogleva, Anna and Polychronopoulos, Dimitris and Pfeifer, Matthias and Poroshin, Vladimir and Ughetto, Micha{\"e}l and Sidders, Ben and Dry, Jonathan and Ahdesm{\"a}ki, Miika and McDermott, Ultan and Papa, Eliseo and others},
-  journal={bioRxiv},
-  year={2021},
-  publisher={Cold Spring Harbor Laboratory}
+@Article{Gogleva2022,
+author={Gogleva, Anna
+and Polychronopoulos, Dimitris
+and Pfeifer, Matthias
+and Poroshin, Vladimir
+and Ughetto, Micha{\"e}l
+and Martin, Matthew J.
+and Thorpe, Hannah
+and Bornot, Aurelie
+and Smith, Paul D.
+and Sidders, Ben
+and Dry, Jonathan R.
+and Ahdesm{\"a}ki, Miika
+and McDermott, Ultan
+and Papa, Eliseo
+and Bulusu, Krishna C.},
+title={Knowledge graph-based recommendation framework identifies drivers of resistance in EGFR mutant non-small cell lung cancer},
+journal={Nature Communications},
+year={2022},
+month={Mar},
+day={29},
+volume={13},
+number={1},
+pages={1667},
+abstract={Resistance to EGFR inhibitors (EGFRi) presents a major obstacle in treating non-small cell lung cancer (NSCLC). One of the most exciting new ways to find potential resistance markers involves running functional genetic screens, such as CRISPR, followed by manual triage of significantly enriched genes. This triage process to identify `high value' hits resulting from the CRISPR screen involves manual curation that requires specialized knowledge and can take even experts several months to comprehensively complete. To find key drivers of resistance faster we build a recommendation system on top of a heterogeneous biomedical knowledge graph integrating pre-clinical, clinical, and literature evidence. The recommender system ranks genes based on trade-offs between diverse types of evidence linking them to potential mechanisms of EGFRi resistance. This unbiased approach identifies 57 resistance markers from >3,000 genes, reducing hit identification time from months to minutes. In addition to reproducing known resistance markers, our method identifies previously unexplored resistance mechanisms that we prospectively validate.},
+issn={2041-1723},
+doi={10.1038/s41467-022-29292-7},
+url={https://doi.org/10.1038/s41467-022-29292-7}
 }
 ```
 
